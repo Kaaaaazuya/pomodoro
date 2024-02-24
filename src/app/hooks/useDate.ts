@@ -1,10 +1,7 @@
+import { useCallback } from 'react'
+
 export const useDate = () => {
-  /**
-   * 秒の数値をMM:SS形式の文字列に変換します。
-   * @param {number} second 秒
-   * @returns MM:SS形式の文字列
-   */
-  const secondToMMSS = (second: number) => {
+  const secondToMMSS = useCallback((second: number) => {
     const MM =
       second >= 10 * 60
         ? Math.floor(second / 60).toString()
@@ -13,7 +10,22 @@ export const useDate = () => {
           : '00'
     const SS = second % 60 >= 10 ? second % 60 : '0' + (second % 60)
     return MM + ':' + SS
-  }
+  }, [])
 
-  return { secondToMMSS }
+  const formatTimeWithUnit = useCallback((second: number) => {
+    if (second >= 3600) {
+      // 1時間以上
+      const hours = Math.floor(second / 3600)
+      return `${hours} hour${hours > 1 ? 's' : ''}`
+    } else if (second >= 60) {
+      // 1分以上
+      const minutes = Math.floor(second / 60)
+      return `${minutes} minute${minutes > 1 ? 's' : ''}`
+    } else {
+      // それ以下
+      return `${Math.floor(second)} second${second === 1 ? '' : 's'}`
+    }
+  }, [])
+
+  return { secondToMMSS, formatTimeWithUnit }
 }
