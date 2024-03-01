@@ -1,8 +1,8 @@
 import { Button } from './Button'
 import Image from 'next/image'
-import * as stop from '../../public/stop.png'
-import * as start from '../../public/start.png'
-import * as pause from '../../public/pause.png'
+import * as stop from '../../../public/stop.png'
+import * as start from '../../../public/start.png'
+import * as pause from '../../../public/pause.png'
 import { Timer } from '../types/timer'
 import { css } from '../../../styled-system/css'
 
