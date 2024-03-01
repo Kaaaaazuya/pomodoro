@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import { css } from '../../../styled-system/css'
 
 type props = {
   onClick: () => void
@@ -7,7 +8,7 @@ type props = {
 
 export const Button = ({ onClick, children }: props) => {
   return (
-    <button onClick={onClick} type='button'>
+    <button className={css({ cursor: 'pointer' })} onClick={onClick} type='button'>
       {children}
     </button>
   )

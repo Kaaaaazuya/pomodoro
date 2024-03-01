@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Timer } from '../types/timer'
-import { TIMER_LENGTH } from '../page'
 import { useCounter } from 'usehooks-ts'
+import { TIMER_LENGTH } from '../components/Timer'
 
 export const useTimer = () => {
   /** タイマーのカウントのsetIntervalのID */
