@@ -3,7 +3,7 @@ import { useDate } from '../hooks/useDate'
 import { Timer as TimerType } from '../types/timer'
 import { css } from '../../../styled-system/css'
 
-export const TIMER_LENGTH = { work: 30, break: 5 * 60 } as const
+export const TIMER_LENGTH = { work: 25 * 60, break: 5 * 60 } as const
 
 const timerProps = {
   isPlaying: false,
